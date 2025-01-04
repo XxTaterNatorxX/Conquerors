@@ -28,8 +28,9 @@ world::world(){
 
     }
     //get players - from saves (subtract from player_amt)
+    //create other random players to fill req
     for(int i = 0; i < player_amt; i++){
-
+        
     }
     for(int i = 0; i < monster_amt; i++){
         
