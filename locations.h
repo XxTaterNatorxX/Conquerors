@@ -20,7 +20,6 @@ protected:
 
 public:
     location(){
-        this->name = string("unnamed");
         this->type = locationType::WILDERNESS;
         this->controllingFaction = faction::NEUTRAL;
     }

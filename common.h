@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdlib>
+#include <ctime>
 #include <string>
 #include <vector>
 #include <map>
@@ -7,11 +9,57 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
 
 using namespace std;
 
+class Random {
+private:
+    static bool seeded;
+    
+public:
+    static void seed() {
+        if (!seeded) {
+            srand(time(nullptr));
+            seeded = true;
+        }
+    }
+    
+    // Random int between min and max (inclusive)
+    static int randInt(int min, int max) {
+        seed();
+        return min + (rand() % (max - min + 1));
+    }
+    
+    // Random float between 0 and 1
+    static float randFloat() {
+        seed();
+        return static_cast<float>(rand()) / RAND_MAX;
+    }
+    
+    // Random bool with probability
+    static bool randBool(float probability = 0.5f) {
+        seed();
+        return randFloat() < probability;
+    }
+};
+
+// Initialize static member
+bool Random::seeded = false;
+
+enum class lootType{
+    HELMET,
+    CHESTPLATE,
+    BOOTS,
+    SWORD,
+    DAGGER,
+    CLAYMORE,
+    HAMMER,
+    KNUCKLES,
+    BOW,
+    SLING,
+    STAFF,
+    SPECIAL
+};
 enum class faction {
     INFAMY,
     KINGDOM,
