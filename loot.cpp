@@ -6,6 +6,21 @@ void loot::addRandomBuff(){
     //add effect
     switch(x){
         case 1:
+            setHealthBoost(getHealthBoost() + 1);
+        case 2:
+            setAgility(getAgility() + 1);
+        case 3:
+            setStrength(getStrength() + 1);
+        case 4:
+            setResistance(getResistance() + 1);
+    }
+}
+void loot::addRandomEffect(){
+    int x = Random::randInt(1, 8);
+    //check if effect is there
+    //add effect
+    switch(x){
+        case 1:
         case 2:
         case 3:
         case 4:
@@ -14,9 +29,6 @@ void loot::addRandomBuff(){
         case 7:
         case 8:
     }
-}
-void loot::addRandomEffect(){
-
 }
 int loot::determineRank(int min, int max){
     int x = Random::randInt(min,max);
